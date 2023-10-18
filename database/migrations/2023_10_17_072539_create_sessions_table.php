@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('time_in')->nullable();
             $table->dateTime('time_out')->nullable();
             $table->decimal('total_minutes')->nullable();
-            $table->boolean('validity');
+            $table->boolean('validity')->default(false);
         });
     }
 
