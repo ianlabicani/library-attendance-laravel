@@ -9,12 +9,17 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return view('students.index');
+        // make result ordered by frequency
+        return view('students.index', ['students' => Student::all()]);
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        $student = Student::find(request('id'));
-        return view('students.index', ['student' => $student]);
+        return view('students.show', ['student' => Student::find($request->student)]);
+    }
+
+    public function search(Request $request)
+    {
+        return view('students.show', ['student' => Student::find($request->id)]);
     }
 }
